@@ -1,0 +1,13 @@
+<h2>Editar Cliente</h2>
+<form #form="ngForm">
+    <div>
+    <input [(ngModel)]="trabalhador.nome" required type="text" class="form-control" name="nome"
+        placeholder="Digite o nome do cliente">
+    <button type="submit" class="btn btn-primary mb-2" [disabled]="form.invalid"
+        (click)="editarCliente()">Editar</button>
+    </div>
+    <div class="form-check">
+        <input [(ngModel)]="trabalhador.status" type="checkbox" class="form-check-input" name="status" id="status">
+        <label class="form-check-label" for="status">Ativo</label>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+<h1>Tabela</h1>
+
+<select [(ngModel)]="filtro" (change)="mudarFiltro()" class="selectpicker">
+  <option value="1"> Ativos </option>
+  <option value="2">Inativos</option>
+  <option value="0">Todos</option>
+</select>
+
+<p *ngIf="!listaFiltrada"><em>Loading...</em></p>
+
+<table class='table table-striped' *ngIf="listaFiltrada">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ativo/Inativo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trabalhador of listaFiltrada">
+      <td>{{ trabalhador.nome }}</td>
+      <td>{{ trabalhador.status ? "ATIVO":"INATIVO" }}</td>
+      <td><a [routerLink]='["/editar",trabalhador.id]'>Editar <i class="fas fa-edit"></i>
+        </a></td>
+    </tr>
+  </tbody>
+</table>
